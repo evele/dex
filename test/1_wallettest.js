@@ -14,9 +14,11 @@ contract("Dex", (accounts) => {
     let dex = await Dex.deployed()
     let link = await Link.deployed()
     await link.approve(dex.address, 500)
-    await dex.deposit(100, web3.utils.fromUtf8("LINK"))
+    await dex.deposit(200, web3.utils.fromUtf8("LINK"))
+    console.log("addr2",dex.address)
+
     let balance = await dex.balances(accounts[0], web3.utils.fromUtf8("LINK"))
-    assert.equal(balance.toNumber(), 100)
+    assert.equal(balance.toNumber(), 200)
   })
 
   it("should handle faulty withdrawals correctly", async () => {

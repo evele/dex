@@ -7,7 +7,7 @@ import "./wallet.sol";
 
 contract Dex is Wallet {
 
-    enum Side {
+    enum Side  {
         BUY,
         SELL
     }
@@ -27,7 +27,7 @@ contract Dex is Wallet {
         return orderBook[_ticker][uint(_side)];
     }
 
-    function createLimitOrder() public {
+    function createLimitOrder(bool _buyOrder,bytes32 _ticker,uint _amount,uint _price) public {
         
     }
 }
